@@ -1,6 +1,4 @@
-[Skip to content](#content)
 
-[Analyse With Jo](https://ningjoanne.wordpress.com/)
 
 Portfolio of data analysis
 
@@ -70,7 +68,7 @@ After previewing the dataset using the code below, several points are addressed 
 5.  Categorise users for future analysis.
 6.  ID and Activity Date column are combined to create a new column as a unique identifier for future analysis.
 7.  Time columns need to be reformatted.
-
+```
     # install packages
     install.packages("tidyverse")
     install.packages("ggplot2")
@@ -128,7 +126,7 @@ After previewing the dataset using the code below, several points are addressed 
     day_activity %>% 
       select(TotalSteps, TotalDistance, VeryActiveMinutes) %>% 
       summary()
-    
+   ```
 
 * * *
 
