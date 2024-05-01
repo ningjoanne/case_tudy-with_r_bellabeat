@@ -1,17 +1,17 @@
 
 
-Portfolio of data analysis
+
 
 Case Study with R – Bellabeat
 =============================
 
 ![](https://ningjoanne.files.wordpress.com/2024/04/combined_plots_cal_act_type.png?w=1024)
 
-![](https://ningjoanne.files.wordpress.com/2024/04/plot_cal_step.png?w=1024)
-
-![](https://ningjoanne.files.wordpress.com/2024/04/plot_sleep_vs_sedebtary.png?w=1024)
-
-![](https://ningjoanne.files.wordpress.com/2024/04/plot_sleeplatency.png?w=1024)
+<div style="display:flex;">
+    <img src="https://ningjoanne.files.wordpress.com/2024/04/plot_cal_step.png?w=340" style="width: 33%;">
+    <img src="https://ningjoanne.files.wordpress.com/2024/04/plot_sleep_vs_sedebtary.png?w=340" style="width: 33%;">
+    <img src="https://ningjoanne.files.wordpress.com/2024/04/plot_sleeplatency.png?w=340" style="width: 33%;">
+</div>
 
 * * *
 
@@ -47,7 +47,7 @@ Step 1. Ask Question
 Step 2. Prepare Data
 --------------------
 
-##### **Evaluate the validity of the data**
+#### **Evaluate the validity of the data**
 
 In this case study, public data from the FitBit Fitness Tracker is utilized. The dataset includes personal fitness tracker information from FitBit users who have consented to share their data to be used for explore users’ habits.
 
@@ -57,7 +57,7 @@ In this case study, public data from the FitBit Fitness Tracker is utilized. The
 *   **Current:** The data spans from 4/12/2016 to 5/12/2016.
 *   **Cited:** Unknown as the data is collected by a third party.
 
-##### **Choose Datasets**
+#### **Choose Datasets**
 
 After previewing the dataset using the code below, several points are addressed below:
 
@@ -133,7 +133,7 @@ After previewing the dataset using the code below, several points are addressed 
 Step 3. Process Data
 --------------------
 
-##### **Segment users**
+#### **Segment users**
 
 First, I would like to categorise users based on their activity type. Quartile-based segmentation is used for this analysis.  
   
@@ -177,6 +177,7 @@ Steps and scenario show below:
     average distance <= 25% TotalDistance +  
     average very activity minutes <= 25% VeryActiveMinutes
 
+    ```
     # categorize customer in 3 groups
     
     customer_category<- day_activity %>%
@@ -204,6 +205,7 @@ Steps and scenario show below:
     user_avg_info_new %>%
       group_by(CustomerType) %>%
       count()
+  
 
 The outcome indicates that there are 4 users classified as High Active and 29 users classified as Moderate Active, with no users falling into the Low Active category based on the specified criteria.
 
@@ -211,7 +213,7 @@ The outcome indicates that there are 4 users classified as High Active and 29 us
 
 ![](https://ningjoanne.files.wordpress.com/2024/04/customer_type_count.png?w=477)
 
-##### **Reformat time**
+#### **Reformat time**
 
     day_activity$ActivityDate <- as.POSIXct(day_activity$ActivityDate, format = "%m/%d/%Y")
     day_activity <- day_activity %>% 
@@ -228,7 +230,7 @@ The outcome indicates that there are 4 users classified as High Active and 29 us
 
 ![](https://ningjoanne.files.wordpress.com/2024/04/new_sleep_date-1.png?w=1024)
 
-##### **Create new column and merge data**
+#### **Create new column and merge data**
 
 The ID and Activity Date columns are merged to form a new column ‘NewId’ serving as a unique identifier also the day\_activity table is joined with day sleep for subsequent analysis.
 
@@ -256,7 +258,7 @@ The ID and Activity Date columns are merged to form a new column ‘NewId’ ser
 Step 4. Analyse Data
 --------------------
 
-##### **General idea**
+#### **General idea**
 
 First and foremost, let’s examine some information from the user group defined earlier in this case study.  
 As indicated by the data below, High Active users tend to burn more calories, yet they sleep less than the Moderate Active users.
@@ -277,7 +279,7 @@ As indicated by the data below, High Active users tend to burn more calories, ye
 
 * * *
 
-##### **Assumption**
+#### **Assumption**
 
 Before diving straight into the data, I prefer to devise several hypotheses and then utilise the data to verify them.
 
@@ -289,7 +291,7 @@ Before diving straight into the data, I prefer to devise several hypotheses and 
 
 * * *
 
-##### **Verify the assumptions**
+#### **Verify the assumptions**
 
 ❓Assumption 1: Does the duration of sleep relate to the number of hours people spend sitting?  
   
@@ -453,8 +455,3 @@ Based on the preceding five observations and insights, the marketing strategy re
 
 Thank you for going through this analysis with me. Feel free to reach out if you have any questions 😊
 
-\_\_ATA.cmd.push(function() { \_\_ATA.initVideoSlot('atatags-370373-66324f0b251dc', { sectionId: '370373', format: 'inread' }); });
-
-\_\_ATA.cmd.push(function() { \_\_ATA.initDynamicSlot({ id: 'atatags-26942-66324f0b2535d', location: 120, formFactor: '001', label: { text: 'Advertisements', }, creative: { reportAd: { text: 'Report this Ad', }, privacySettings: { text: 'Privacy', onClick: function() { window.\_\_tcfapi && window.\_\_tcfapi( 'showUi' ); }, } } }); });
-
-[Analyse With Jo](https://ningjoanne.wordpress.com/), [Website Powered by WordPress.com](https://wordpress.com/?ref=footer_custom_powered).
